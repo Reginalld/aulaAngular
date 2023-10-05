@@ -16,6 +16,7 @@ import { LivrosComponent } from './app/livros/livros.component';
 import { LivroslistComponent } from './app/livros/livroslist/livroslist.component';
 import { CarrosdetailsComponent } from './app/carros/carrosdetails/carrosdetails.component';
 import { LivrosdetailsComponent } from './app/livros/livrosdetails/livrosdetails.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LivrosdetailsComponent } from './app/livros/livrosdetails/livrosdetails
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

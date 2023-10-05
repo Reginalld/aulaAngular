@@ -1,17 +1,16 @@
 <div id="tudo">
-    <table border="1px">
-    <tr>
-        <th>Nome:</th>
-        <th>Idade: </th>
-    </tr>
-    <tr *ngFor="let pessoa of lista">
-
-        <div *ngIf="pessoa.idade > 30">
-        <td>{{pessoa.nome}}</td>
-        <td>{{pessoa.idade}}</td>
-    </div>
-    </tr>
-</table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pessoa of lista" >
+                <td *ngIf="pessoa.idade > 30">{{pessoa.nome}}</td>
+                <td *ngIf="pessoa.idade > 30">{{pessoa.idade}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-    

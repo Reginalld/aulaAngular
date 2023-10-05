@@ -19,10 +19,12 @@ export class PessoasdetailsComponent {
       this.pessoa = new Pessoa();
       this.pessoa.idade = 10;
       this.pessoa.nome = "Maria";
+  
     }else{
       this.pessoa = new Pessoa();
       this.pessoa.idade = 0;
       this.pessoa.nome = "";
+ 
     }
   }
 

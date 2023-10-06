@@ -4,13 +4,13 @@
             <h2>Cadastrar Pessoa</h2>
             <div class="input-group">
                 <label for="username">Nome da pessoa:</label>
-                <input type="text" id="username" name="username" placeholder="Digite o nome" required>
+                <input type="text" id="username" name="username" placeholder="Digite o nome" [(ngModel)]="pessoa.nome">
             </div>
             <div class="input-group">
                 <label for="password">Idade:</label>
-                <input type="password" id="password" name="password" placeholder="Digite a idade" required>
+                <input type="username" id="password" name="password" placeholder="Digite a idade" [(ngModel)]="pessoa.idade" >
             </div>
-            <button  routerLink="/admin/pessoas" type="submit">Cadastrar</button>
+            <button  (click)="salvar()" type="submit">Salvar</button>
         </form>
     </div>
 </body>

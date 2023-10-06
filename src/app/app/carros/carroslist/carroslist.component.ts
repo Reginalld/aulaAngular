@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Carro } from './Carro';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carroslist',
@@ -10,19 +11,17 @@ export class CarroslistComponent {
 
     lista: Carro [] = [];
 
-    constructor(){
+    modalService = inject(NgbModal);
 
-    let carro1: Carro = new Carro();
-    carro1.ano = 2010;
-    carro1.nome = 'Celta';
-
-    let carro2: Carro = new Carro();
-    carro2.ano = 1996;
-    carro2.nome = 'Uno';
-
-    this.lista.push(carro1);
-    this.lista.push(carro2);
-
+    abrirModal(abc:any){
+      this.modalService.open(abc, {size: 'lg'})
     }
+    
+    addNaLista(carro: Carro){
+      this.lista.push(carro);
+      this.modalService.dismissAll();
+    }
+
+
 
 }

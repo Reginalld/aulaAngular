@@ -4,13 +4,13 @@
             <h2>Login</h2>
             <div class="input-group">
                 <label for="username">Nome de Usuário:</label>
-                <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário" required>
+                <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário"  [(ngModel)]="usuario.usuario">
             </div>
             <div class="input-group">
                 <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha"  [(ngModel)]="usuario.senha">
             </div>
-            <button  routerLink="/admin/pessoas" type="submit">Entrar</button>
+            <button  (click)="logar()" type="submit">Entrar</button>
         </form>
     </div>
 </body>

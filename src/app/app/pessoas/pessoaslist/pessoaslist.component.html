@@ -1,3 +1,4 @@
+
 <div id="tudo">
     <table class="table table-striped">
         <thead>
@@ -8,9 +9,32 @@
         </thead>
         <tbody>
             <tr *ngFor="let pessoa of lista" >
-                <td *ngIf="pessoa.idade > 30">{{pessoa.nome}}</td>
-                <td *ngIf="pessoa.idade > 30">{{pessoa.idade}}</td>
+                <td >{{pessoa.nome}}</td>
+                <td >{{pessoa.idade}}</td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<div id = "tudomesmo">
+
+<button id="botaoCadastro" (click)="abrirModal(abc)" >Cadastrar</button>
+
+</div>
+
+
+
+<ng-template #abc let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Cadastrar</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		
+        <app-pessoasdetails (retorno)="addNaLista($event)" ></app-pessoasdetails>
+            
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fechar</button>
+	</div>
+</ng-template>

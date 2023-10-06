@@ -4,13 +4,13 @@
             <h2>Cadastrar Carro</h2>
             <div class="input-group">
                 <label for="username">Modelo:</label>
-                <input type="text" id="username" name="username" placeholder="Digite o modelo" required>
+                <input type="text" id="username" name="username" placeholder="Digite o modelo" [(ngModel)]="carro.nome">
             </div>
             <div class="input-group">
                 <label for="password">Ano:</label>
-                <input type="password" id="password" name="password" placeholder="Digite o ano" required>
+                <input type="username" id="password" name="password" placeholder="Digite o ano" [(ngModel)]="carro.ano">
             </div>
-            <button  routerLink="/admin/carros" type="submit">Cadastrar</button>
+            <button  (click)="salvar()" type="submit">Salvar</button>
         </form>
     </div>
 </body>

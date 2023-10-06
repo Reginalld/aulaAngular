@@ -4,13 +4,13 @@
             <h2>Cadastrar Livro</h2>
             <div class="input-group">
                 <label for="username">Nome do autor:</label>
-                <input type="text" id="username" name="username" placeholder="Digite o autor" required>
+                <input type="text" id="username" name="username" placeholder="Digite o autor" [(ngModel)]="livro.autor">
             </div>
             <div class="input-group">
                 <label for="password">Título:</label>
-                <input type="password" id="password" name="password" placeholder="Digite o título" required>
+                <input type="username" id="password" name="password" placeholder="Digite o título" [(ngModel)]="livro.titulo">
             </div>
-            <button  routerLink="/admin/livros" type="submit">Cadastrar</button>
+            <button  (click)="salvar()" type="submit">Salvar</button>
         </form>
     </div>
 </body>

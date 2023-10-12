@@ -3,14 +3,19 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>#ID</th>
                 <th>Nome</th>
                 <th>Idade</th>
+                <th>Botões</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let pessoa of lista" >
-                <td >{{pessoa.nome}}</td>
-                <td >{{pessoa.idade}}</td>
+            <tr *ngFor="let pessoa of lista; let i = index" >
+                <td>{{pessoa.id}}</td>
+                <td>{{pessoa.nome}}</td>
+                <td>{{pessoa.idade}}</td>
+                <td><button class="btn btn-danger" (click)="editar(abc, pessoa, i)">Editar</button>
+                    <button class="btn btn-danger" (click)="deletar(pessoa.id)">Deletar</button></td>
             </tr>
         </tbody>
     </table>
@@ -31,7 +36,7 @@
 	</div>
 	<div class="modal-body">
 		
-        <app-pessoasdetails (retorno)="addNaLista($event)" ></app-pessoasdetails>
+        <app-pessoasdetails [pessoa]="pessoaSelecionadaParaEdicao" (retorno)="addOuEditarPessoa($event)" ></app-pessoasdetails>
             
 	</div>
 	<div class="modal-footer">

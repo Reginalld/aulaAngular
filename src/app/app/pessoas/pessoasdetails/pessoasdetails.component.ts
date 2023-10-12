@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ActivatedRoute, OutletContext } from '@angular/router';
-import { Pessoa } from '../pessoaslist/Pessoa';
+import { Pessoa } from '../../../../models/Pessoa';
+import { PessoaService } from 'src/services/pessoas.service';
 
 @Component({
   selector: 'app-pessoasdetails',
@@ -9,18 +10,28 @@ import { Pessoa } from '../pessoaslist/Pessoa';
 })
 export class PessoasdetailsComponent {
 
-  route = inject(ActivatedRoute);
-  pessoa: Pessoa = new Pessoa();
-
   @Output() retorno = new EventEmitter<Pessoa>();
+  @Input() pessoa: Pessoa = new Pessoa();
+
+  pessoaService = inject(PessoaService);
 
   constructor(){
-    let id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
-}
-
-  salvar(){
-    this.retorno.emit(this.pessoa);
   }
+
+  salvar() {
+    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
+
+    this.pessoaService.save(this.pessoa).subscribe({
+      next: pessoa => { // QUANDO DÁ CERTO
+        this.retorno.emit(pessoa);
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+  }
+
 
 }

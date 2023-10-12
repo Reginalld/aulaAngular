@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/sistema/usuario';
-
+import { Usuario } from 'src/models/usuario';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
